@@ -1,6 +1,9 @@
-# MOODWAVE
+<img width="1848" height="982" alt="image" src="https://github.com/user-attachments/assets/719aeef4-33bf-4cc3-8a94-66757abfeda9" />
 
-MOODWAVE recommends real songs from how you listen, then plays an official Apple Music preview or links to the song. Rankings and the short reasons under each song come from the scores in this app. A language model does not write them.
+
+ # MOODWAVE
+
+MOODWAVE recommends real songs from how you listen, then plays a music preview of the song. Rankings and the short reasons under each song come from the scores in this app. A language model does not write them.
 
 ## Features
 
@@ -24,9 +27,9 @@ MOODWAVE recommends real songs from how you listen, then plays an official Apple
 
 **Player.** The bar at the bottom plays the current song, seeks when the source allows it, and keeps shuffle, repeat, volume, like, and skip. The queue on the right shows artwork, the source, and the lyrics.
 
-**Lyrics.** Fetched from [LRCLIB](https://lrclib.net) for the current song. The full text sits in a scrollable box. Lines are not highlighted in time with the audio, because an Apple preview can begin at any point in the song.
+**Lyrics.** Fetched from [LRCLIB](https://lrclib.net) for the current song.
 
-**Onboarding.** The first visit asks for genres, languages, artists, and what you want music for. Those answers stay until you edit or reset them. Later listening adjusts a separate inferred profile slowly. One click does not replace what you entered.
+**Onboarding.** The first visit asks for genres, languages, artists, and what you want music for. Those answers stay until you edit or reset them. Later listening adjusts a separate inferred profile slowly.
 
 ## How a song gets its score
 
@@ -69,57 +72,6 @@ Songs are not downloaded, proxied, or scraped. A preview is not presented as the
 - Node.js 20 or newer
 - A network connection the first time the catalog is built, and whenever lyrics or YouTube search run
 
-No API key is required for Apple Music search, YouTube Music search, or LRCLIB.
-
-Spotify playlist search is optional. It needs a Spotify application client id and secret in `backend/.env`. Spotify may still refuse search unless the owner of that application has Premium. The playlist page uses YouTube Music either way.
-
-## Setup
-
-From the repository root:
-
-```bash
-uv venv --python 3.12 .venv
-uv pip install -r backend/requirements.txt --python .venv/bin/python
-cd frontend && npm install && node scripts/copy-models.mjs
-```
-
-`copy-models.mjs` copies the expression models into `frontend/public/models`.
-
-Start the API:
-
-```bash
-.venv/bin/uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8000
-```
-
-Start the interface, in a second terminal:
-
-```bash
-cd frontend && npm run dev
-```
-
-Open http://127.0.0.1:5173. Vite proxies `/api` to port 8000.
-
-The first launch requests a catalog from Apple Music and saves it under `backend/data`. Later launches reuse that file until it is a week old. If Apple is unreachable and a saved catalog exists, the app keeps serving the saved songs.
-
-## Configuration
-
-Copy `backend/.env.example` to `backend/.env` and edit it. The example file has no secrets. `backend/.env` is gitignored.
-
-| Variable | Purpose |
-| --- | --- |
-| `MOODWAVE_DATA_DIR` | Where the catalog cache and database live. Default `backend/data` |
-| `MOODWAVE_DB_PATH` | SQLite file. Default `backend/data/moodwave.db` |
-| `MOODWAVE_HOST` | API host. Default `127.0.0.1` |
-| `MOODWAVE_PORT` | API port. Default `8000` |
-| `MOODWAVE_ITUNES_COUNTRY` | Apple Music storefront. Default `US` |
-| `MOODWAVE_YTMUSIC_LOCATION` | YouTube Music region. Default `IN` |
-| `MOODWAVE_YTMUSIC_EMBED_CHECK` | Ask YouTube oEmbed before embedding. Default on |
-| `MOODWAVE_CATALOG_CSV` | Optional CSV that replaces the Apple Music catalog |
-| `MOODWAVE_SPOTIFY_CLIENT_ID` | Optional. Your own Spotify application id |
-| `MOODWAVE_SPOTIFY_CLIENT_SECRET` | Optional. Your own Spotify application secret |
-
-Put Spotify credentials only in `backend/.env`.
-
 ## Layout
 
 | Path | What it holds |
@@ -132,20 +84,3 @@ Put Spotify credentials only in `backend/.env`.
 | `backend/tests/` | Ranking, catalog, lyrics, and API tests |
 | `docs/API.md` | Route reference |
 | `docs/LIMITATIONS.md` | What the sources do not provide |
-
-## Checks
-
-```bash
-cd backend && ../.venv/bin/python -m pytest
-cd frontend && npx tsc --noEmit
-```
-
-Interactive API schema, with the server running: http://127.0.0.1:8000/docs
-
-Written reference: [docs/API.md](docs/API.md). Source limits: [docs/LIMITATIONS.md](docs/LIMITATIONS.md).
-
-## Publishing notes
-
-Generated files stay on your machine: the SQLite database, the Apple catalog cache, the YouTube embed cache, expression model weights, and anything under `frontend/public/audio`. They are listed in `.gitignore`.
-
-This repository does not include a license file. Add one if you want other people to reuse the code.
