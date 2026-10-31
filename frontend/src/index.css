@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --color-ink: #09090b;
+  --color-panel: #101012;
+  --color-raised: #17171b;
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-foam: #f4f1ea;
+  --color-mist: #9c978e;
+  --color-sand: #e4b48a;
+  --color-sage: #8fb9aa;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(900px 420px at 0% -10%, rgba(228, 180, 138, 0.08), transparent 55%),
+    #09090b;
+  color: #f4f1ea;
+  font-family: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 380;
+  letter-spacing: 0.01em;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+}
+
+::selection {
+  background: rgba(228, 180, 138, 0.28);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 99px;
+}
+
+input[type="range"] {
+  appearance: none;
+  height: 4px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.12);
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 99px;
+  background: #f4f1ea;
+  border: 0;
+  cursor: pointer;
+}
+
+.font-display {
+  font-family: "Fraunces", ui-serif, Georgia, serif;
+  font-optical-sizing: auto;
+}

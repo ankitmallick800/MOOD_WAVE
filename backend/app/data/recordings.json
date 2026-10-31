@@ -1,0 +1,575 @@
+{
+  "source": "FreePD library, GitHub mirror 0lhi/FreePD branch stream",
+  "license": "CC0-1.0",
+  "note": "Each file is a public-domain library recording. It is not a performance of the fictional catalog title, and catalog features were not measured from these files.",
+  "tracks": {
+    "mw-001": {
+      "file": "mw-001.mp3",
+      "title": "A Little Faith",
+      "artist": "Kevin MacLeod",
+      "license": "CC0-1.0",
+      "duration_ms": 87980,
+      "source": "Zoned/A Little Faith.mp3"
+    },
+    "mw-002": {
+      "file": "mw-002.mp3",
+      "title": "A good bass for gambling",
+      "artist": "Komiku",
+      "license": "CC0-1.0",
+      "duration_ms": 155995,
+      "source": "Miscellaneous/A Good Bass for Gambling.mp3"
+    },
+    "mw-003": {
+      "file": "mw-003.mp3",
+      "title": "Alls Fair In Love",
+      "artist": "Bryan Teoh",
+      "license": "CC0-1.0",
+      "duration_ms": 239448,
+      "source": "Comedy/Alls Fair In Love.mp3"
+    },
+    "mw-004": {
+      "file": "mw-004.mp3",
+      "title": "Adventure",
+      "artist": "Rafael Krux, CinematicWaves.com",
+      "license": "CC0-1.0",
+      "duration_ms": 84724,
+      "source": "Epic/Adventure.mp3"
+    },
+    "mw-005": {
+      "file": "mw-005.mp3",
+      "title": "Action Strike",
+      "artist": null,
+      "license": "CC0-1.0",
+      "duration_ms": 134441,
+      "source": "Scoring/Action Strike.mp3"
+    },
+    "mw-006": {
+      "file": "mw-006.mp3",
+      "title": "Ambient Bongos",
+      "artist": "Alexander Nakarada",
+      "license": "CC0-1.0",
+      "duration_ms": 87641,
+      "source": "World/Ambient Bongos.mp3"
+    },
+    "mw-007": {
+      "file": "mw-007.mp3",
+      "title": "Alien Spaceship Atmosphere",
+      "artist": "Kevin MacLeod",
+      "license": "CC0-1.0",
+      "duration_ms": 124056,
+      "source": "Horror/Alien Spaceship Atmosphere.mp3"
+    },
+    "mw-008": {
+      "file": "mw-008.mp3",
+      "title": "Brothers Unite",
+      "artist": "Alexander Nakarada",
+      "license": "CC0-1.0",
+      "duration_ms": 183465,
+      "source": "Romance/Brothers Unite.mp3"
+    },
+    "mw-009": {
+      "file": "mw-009.mp3",
+      "title": "Advertime",
+      "artist": null,
+      "license": "CC0-1.0",
+      "duration_ms": 134024,
+      "source": "Upbeat/Advertime.mp3"
+    },
+    "mw-010": {
+      "file": "mw-010.mp3",
+      "title": "3 am West End",
+      "artist": "statusq",
+      "license": "CC0-1.0",
+      "duration_ms": 291100,
+      "source": "Electronic/3 am West End.mp3"
+    },
+    "mw-011": {
+      "file": "mw-011.mp3",
+      "title": "A Terrible Sounding Piece of Music",
+      "artist": "Frank Nora",
+      "license": "CC0-1.0",
+      "duration_ms": 149629,
+      "source": "Zoned/A Terrible Sounding Piece of Music.mp3"
+    },
+    "mw-012": {
+      "file": "mw-012.mp3",
+      "title": "A Waltz For Naseem",
+      "artist": "dogsounds",
+      "license": "CC0-1.0",
+      "duration_ms": 216782,
+      "source": "Miscellaneous/A Waltz For Naseem.mp3"
+    },
+    "mw-013": {
+      "file": "mw-013.mp3",
+      "title": "Attic Secrets",
+      "artist": "Rafael Krux, CinematicWaves.com",
+      "license": "CC0-1.0",
+      "duration_ms": 66349,
+      "source": "Comedy/Attic Secrets.mp3"
+    },
+    "mw-014": {
+      "file": "mw-014.mp3",
+      "title": "Main Theme (Adventures of Flying Jack)",
+      "artist": "Alexander Nakarada",
+      "license": "CC0-1.0",
+      "duration_ms": 73000,
+      "source": "Epic/Adventures of Flying Jack.mp3"
+    },
+    "mw-015": {
+      "file": "mw-015.mp3",
+      "title": "After the End",
+      "artist": "Rafael Krux",
+      "license": "CC0-1.0",
+      "duration_ms": 97802,
+      "source": "Scoring/After the End.mp3"
+    },
+    "mw-016": {
+      "file": "mw-016.mp3",
+      "title": "Aquatic City Vanished",
+      "artist": null,
+      "license": "CC0-1.0",
+      "duration_ms": 148752,
+      "source": "World/Aquatic City Vanished.mp3"
+    },
+    "mw-017": {
+      "file": "mw-017.mp3",
+      "title": "Asking Questions",
+      "artist": "Rafael Krux",
+      "license": "CC0-1.0",
+      "duration_ms": 104255,
+      "source": "Horror/Asking Questions.mp3"
+    },
+    "mw-018": {
+      "file": "mw-018.mp3",
+      "title": "Champ de tournesol",
+      "artist": "Komiku",
+      "license": "CC0-1.0",
+      "duration_ms": 117925,
+      "source": "Romance/Champ de tournesol.mp3"
+    },
+    "mw-019": {
+      "file": "mw-019.mp3",
+      "title": "And Just Like That",
+      "artist": "Bryan Teoh",
+      "license": "CC0-1.0",
+      "duration_ms": 114264,
+      "source": "Upbeat/And Just Like That.mp3"
+    },
+    "mw-020": {
+      "file": "mw-020.mp3",
+      "title": "Arpent",
+      "artist": "Kevin MacLeod",
+      "license": "CC0-1.0",
+      "duration_ms": 162064,
+      "source": "Electronic/Arpent.mp3"
+    },
+    "mw-021": {
+      "file": "mw-021.mp3",
+      "title": "A Turn for the Worse",
+      "artist": "Kevin MacLeod",
+      "license": "CC0-1.0",
+      "duration_ms": 65520,
+      "source": "Zoned/A Turn for the Worse.mp3"
+    },
+    "mw-022": {
+      "file": "mw-022.mp3",
+      "title": "Abstract Anxiety",
+      "artist": "Severed Personality",
+      "license": "CC0-1.0",
+      "duration_ms": 268847,
+      "source": "Miscellaneous/Abstract Anxiety.mp3"
+    },
+    "mw-023": {
+      "file": "mw-023.mp3",
+      "title": "Barnville",
+      "artist": "Rafael Krux",
+      "license": "CC0-1.0",
+      "duration_ms": 101747,
+      "source": "Comedy/Barnville.mp3"
+    },
+    "mw-024": {
+      "file": "mw-024.mp3",
+      "title": "Ancient Rite",
+      "artist": "Kevin MacLeod",
+      "license": "CC0-1.0",
+      "duration_ms": 113215,
+      "source": "Epic/Ancient Rite.mp3"
+    },
+    "mw-025": {
+      "file": "mw-025.mp3",
+      "title": "Beginning of Conflict",
+      "artist": "Rafael Krux",
+      "license": "CC0-1.0",
+      "duration_ms": 99370,
+      "source": "Scoring/Beginning of Conflict.mp3"
+    },
+    "mw-026": {
+      "file": "mw-026.mp3",
+      "title": "Be Jammin",
+      "artist": "Alexander Nakarada",
+      "license": "CC0-1.0",
+      "duration_ms": 167053,
+      "source": "World/Be Jammin.mp3"
+    },
+    "mw-027": {
+      "file": "mw-027.mp3",
+      "title": "Consecrated Ground",
+      "artist": "Alexander Nakarada",
+      "license": "CC0-1.0",
+      "duration_ms": 111543,
+      "source": "Horror/Consecrated Ground.mp3"
+    },
+    "mw-028": {
+      "file": "mw-028.mp3",
+      "title": "Horizon Flare",
+      "artist": "Alexander Nakarada",
+      "license": "CC0-1.0",
+      "duration_ms": 102318,
+      "source": "Romance/Horizon Flare.mp3"
+    },
+    "mw-029": {
+      "file": "mw-029.mp3",
+      "title": "Bar Brawl",
+      "artist": "Bryan Teoh",
+      "license": "CC0-1.0",
+      "duration_ms": 122592,
+      "source": "Upbeat/Bar Brawl.mp3"
+    },
+    "mw-030": {
+      "file": "mw-030.mp3",
+      "title": "Beat One",
+      "artist": "Kevin MacLeod",
+      "license": "CC0-1.0",
+      "duration_ms": 180066,
+      "source": "Electronic/Beat One.mp3"
+    },
+    "mw-031": {
+      "file": "mw-031.mp3",
+      "title": "A Wormhole in the Top of the World",
+      "artist": "Magdalen",
+      "license": "CC0-1.0",
+      "duration_ms": 128619,
+      "source": "Zoned/A Wormhole in the Top of the World.mp3"
+    },
+    "mw-032": {
+      "file": "mw-032.mp3",
+      "title": "Adding the Sun",
+      "artist": "Kevin MacLeod",
+      "license": "CC0-1.0",
+      "duration_ms": 176026,
+      "source": "Miscellaneous/Adding the Sun.mp3"
+    },
+    "mw-033": {
+      "file": "mw-033.mp3",
+      "title": "Barroom Ballet",
+      "artist": "Kevin MacLeod",
+      "license": "CC0-1.0",
+      "duration_ms": 56592,
+      "source": "Comedy/Barroom Ballet.mp3"
+    },
+    "mw-034": {
+      "file": "mw-034.mp3",
+      "title": "Behind Enemy Lines",
+      "artist": null,
+      "license": "CC0-1.0",
+      "duration_ms": 114913,
+      "source": "Epic/Behind Enemy Lines.mp3"
+    },
+    "mw-035": {
+      "file": "mw-035.mp3",
+      "title": "Desert Fox Underscore",
+      "artist": null,
+      "license": "CC0-1.0",
+      "duration_ms": 133224,
+      "source": "Scoring/Desert Fox Underscore.mp3"
+    },
+    "mw-036": {
+      "file": "mw-036.mp3",
+      "title": "Blacksmith",
+      "artist": "Alexander Nakarada",
+      "license": "CC0-1.0",
+      "duration_ms": 160810,
+      "source": "World/Blacksmith.mp3"
+    },
+    "mw-037": {
+      "file": "mw-037.mp3",
+      "title": "Creepy Hallow",
+      "artist": "Alexander Nakarada",
+      "license": "CC0-1.0",
+      "duration_ms": 120059,
+      "source": "Horror/Creepy Hallow.mp3"
+    },
+    "mw-038": {
+      "file": "mw-038.mp3",
+      "title": "Isolation Waltz",
+      "artist": "Bryan Teoh",
+      "license": "CC0-1.0",
+      "duration_ms": 205320,
+      "source": "Romance/Isolation Waltz.mp3"
+    },
+    "mw-039": {
+      "file": "mw-039.mp3",
+      "title": "From Page to Practice",
+      "artist": "Bryan Teoh",
+      "license": "CC0-1.0",
+      "duration_ms": 136560,
+      "source": "Upbeat/From Page to Practice.mp3"
+    },
+    "mw-040": {
+      "file": "mw-040.mp3",
+      "title": "Chronos",
+      "artist": "Alexander Nakarada",
+      "license": "CC0-1.0",
+      "duration_ms": 129222,
+      "source": "Electronic/Chronos.mp3"
+    },
+    "mw-041": {
+      "file": "mw-041.mp3",
+      "title": "Acoustic Shifter",
+      "artist": "*imp*",
+      "license": "CC0-1.0",
+      "duration_ms": 172178,
+      "source": "Zoned/Acoustic Shifter.mp3"
+    },
+    "mw-042": {
+      "file": "mw-042.mp3",
+      "title": "Aquarium",
+      "artist": "Kevin MacLeod",
+      "license": "CC0-1.0",
+      "duration_ms": 144013,
+      "source": "Miscellaneous/Aquarium.mp3"
+    },
+    "mw-043": {
+      "file": "mw-043.mp3",
+      "title": "BeBop for Joey",
+      "artist": null,
+      "license": "CC0-1.0",
+      "duration_ms": 139389,
+      "source": "Comedy/BeBop for Joey.mp3"
+    },
+    "mw-044": {
+      "file": "mw-044.mp3",
+      "title": "Big Eyes",
+      "artist": null,
+      "license": "CC0-1.0",
+      "duration_ms": 149081,
+      "source": "Epic/Big Eyes.mp3"
+    },
+    "mw-045": {
+      "file": "mw-045.mp3",
+      "title": "Desert Fox",
+      "artist": null,
+      "license": "CC0-1.0",
+      "duration_ms": 133224,
+      "source": "Scoring/Desert Fox.mp3"
+    },
+    "mw-046": {
+      "file": "mw-046.mp3",
+      "title": "Bollywood Groove",
+      "artist": "Kevin MacLeod",
+      "license": "CC0-1.0",
+      "duration_ms": 150073,
+      "source": "World/Bollywood Groove.mp3"
+    },
+    "mw-047": {
+      "file": "mw-047.mp3",
+      "title": "Cursed Intro",
+      "artist": "Rafael Krux, CinematicWaves.com",
+      "license": "CC0-1.0",
+      "duration_ms": 76006,
+      "source": "Horror/Cursed Intro.mp3"
+    },
+    "mw-048": {
+      "file": "mw-048.mp3",
+      "title": "La Citadelle",
+      "artist": "Komiku",
+      "license": "CC0-1.0",
+      "duration_ms": 161889,
+      "source": "Romance/La Citadelle.mp3"
+    },
+    "mw-049": {
+      "file": "mw-049.mp3",
+      "title": "Funshine",
+      "artist": "Kevin MacLeod",
+      "license": "CC0-1.0",
+      "duration_ms": 165068,
+      "source": "Upbeat/Funshine.mp3"
+    },
+    "mw-050": {
+      "file": "mw-050.mp3",
+      "title": "Favorite",
+      "artist": "Alexander Nakarada",
+      "license": "CC0-1.0",
+      "duration_ms": 175000,
+      "source": "Electronic/Favorite.mp3"
+    },
+    "mw-051": {
+      "file": "mw-051.mp3",
+      "title": "Action Introduction",
+      "artist": "Komiku",
+      "license": "CC0-1.0",
+      "duration_ms": 159830,
+      "source": "Zoned/Action Introduction.mp3"
+    },
+    "mw-052": {
+      "file": "mw-052.mp3",
+      "title": "Bass Meant Jazz",
+      "artist": "Kevin MacLeod",
+      "license": "CC0-1.0",
+      "duration_ms": 279740,
+      "source": "Miscellaneous/Bass Meant Jazz.mp3"
+    },
+    "mw-053": {
+      "file": "mw-053.mp3",
+      "title": "Circus of Freaks",
+      "artist": "Kevin MacLeod",
+      "license": "CC0-1.0",
+      "duration_ms": 56490,
+      "source": "Comedy/Circus of Freaks.mp3"
+    },
+    "mw-054": {
+      "file": "mw-054.mp3",
+      "title": "Black Knight",
+      "artist": "Rafael Krux, CinematicWaves.com",
+      "license": "CC0-1.0",
+      "duration_ms": 142118,
+      "source": "Epic/Black Knight.mp3"
+    },
+    "mw-055": {
+      "file": "mw-055.mp3",
+      "title": "Dreams of Vain",
+      "artist": "Rafael Krux",
+      "license": "CC0-1.0",
+      "duration_ms": 96810,
+      "source": "Scoring/Dreams of Vain.mp3"
+    },
+    "mw-056": {
+      "file": "mw-056.mp3",
+      "title": "Bonfire",
+      "artist": "Alexander Nakarada",
+      "license": "CC0-1.0",
+      "duration_ms": 98672,
+      "source": "World/Bonfire.mp3"
+    },
+    "mw-057": {
+      "file": "mw-057.mp3",
+      "title": "Dawn of the Apocalypse",
+      "artist": "Rafael Krux, CinematicWaves.com",
+      "license": "CC0-1.0",
+      "duration_ms": 143736,
+      "source": "Horror/Dawn of the Apocalypse.mp3"
+    },
+    "mw-058": {
+      "file": "mw-058.mp3",
+      "title": "Landra's Dream",
+      "artist": "Jason Shaw",
+      "license": "CC0-1.0",
+      "duration_ms": 88924,
+      "source": "Romance/Landra's Dream.mp3"
+    },
+    "mw-059": {
+      "file": "mw-059.mp3",
+      "title": "Happy Whistling Ukulele",
+      "artist": null,
+      "license": "CC0-1.0",
+      "duration_ms": 123218,
+      "source": "Upbeat/Happy Whistling Ukulele.mp3"
+    },
+    "mw-060": {
+      "file": "mw-060.mp3",
+      "title": "Fireworks",
+      "artist": "Alexander Nakarada",
+      "license": "CC0-1.0",
+      "duration_ms": 191000,
+      "source": "Electronic/Fireworks.mp3"
+    },
+    "mw-061": {
+      "file": "mw-061.mp3",
+      "title": "Action Investigation",
+      "artist": "Komiku",
+      "license": "CC0-1.0",
+      "duration_ms": 121000,
+      "source": "Zoned/Action Investigation.mp3"
+    },
+    "mw-062": {
+      "file": "mw-062.mp3",
+      "title": "Bleu",
+      "artist": "Komiku",
+      "license": "CC0-1.0",
+      "duration_ms": 210957,
+      "source": "Miscellaneous/Bleu.mp3"
+    },
+    "mw-063": {
+      "file": "mw-063.mp3",
+      "title": "Creepy Comedy",
+      "artist": "Rafael Krux, CinematicWaves.com",
+      "license": "CC0-1.0",
+      "duration_ms": 137837,
+      "source": "Comedy/Creepy Comedy.mp3"
+    },
+    "mw-064": {
+      "file": "mw-064.mp3",
+      "title": "Heroic Adventure",
+      "artist": null,
+      "license": "CC0-1.0",
+      "duration_ms": 142942,
+      "source": "Epic/Heroic Adventure.mp3"
+    },
+    "mw-065": {
+      "file": "mw-065.mp3",
+      "title": "Final Step",
+      "artist": "Rafael Krux",
+      "license": "CC0-1.0",
+      "duration_ms": 95425,
+      "source": "Scoring/Final Step.mp3"
+    },
+    "mw-066": {
+      "file": "mw-066.mp3",
+      "title": "Connecting Rainbows",
+      "artist": "Kevin MacLeod",
+      "license": "CC0-1.0",
+      "duration_ms": 116062,
+      "source": "World/Connecting Rainbows.mp3"
+    },
+    "mw-067": {
+      "file": "mw-067.mp3",
+      "title": "Halloween Theme 1",
+      "artist": "Alexander Nakarada",
+      "license": "CC0-1.0",
+      "duration_ms": 120000,
+      "source": "Horror/Halloween Theme 1.mp3"
+    },
+    "mw-068": {
+      "file": "mw-068.mp3",
+      "title": "Lovely Piano Song",
+      "artist": null,
+      "license": "CC0-1.0",
+      "duration_ms": 95787,
+      "source": "Romance/Lovely Piano Song.mp3"
+    },
+    "mw-069": {
+      "file": "mw-069.mp3",
+      "title": "Inspiration",
+      "artist": null,
+      "license": "CC0-1.0",
+      "duration_ms": 138252,
+      "source": "Upbeat/Inspiration.mp3"
+    },
+    "mw-070": {
+      "file": "mw-070.mp3",
+      "title": "Hear What They Say",
+      "artist": "Kevin MacLeod",
+      "license": "CC0-1.0",
+      "duration_ms": 137639,
+      "source": "Electronic/Hear What They Say.mp3"
+    },
+    "mw-071": {
+      "file": "mw-071.mp3",
+      "title": "All in a Silver Line",
+      "artist": "statusq",
+      "license": "CC0-1.0",
+      "duration_ms": 206451,
+      "source": "Zoned/All in a Silver Line.mp3"
+    }
+  }
+}
