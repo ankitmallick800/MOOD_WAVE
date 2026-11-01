@@ -4,7 +4,12 @@
     "backend": {
       "root": "backend",
       "framework": "fastapi",
-      "entrypoint": "app.main:app"
+      "entrypoint": "app.main:app",
+      "functions": {
+        "app/main.py": {
+          "maxDuration": 60
+        }
+      }
     }
   },
   "rewrites": [
@@ -12,10 +17,5 @@
       "source": "/(.*)",
       "destination": { "service": "backend" }
     }
-  ],
-  "functions": {
-    "backend/app/main.py": {
-      "maxDuration": 60
-    }
-  }
+  ]
 }

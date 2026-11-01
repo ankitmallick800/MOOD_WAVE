@@ -32,13 +32,9 @@ jobs:
       - name: Build the site
         working-directory: frontend
         env:
-          VITE_BASE: /Music-Recommender/
-          VITE_API_BASE: ${{ vars.VITE_API_BASE }}
+          VITE_BASE: /MOOD_WAVE/
+          VITE_API_BASE: ${{ vars.VITE_API_BASE || 'https://mood-wave-seven.vercel.app' }}
         run: |
-          if [ -z "$VITE_API_BASE" ]; then
-            echo "Add the Actions variable VITE_API_BASE with the Vercel origin, then rerun this workflow."
-            exit 1
-          fi
           npm ci
           node scripts/copy-models.mjs
           npm run build

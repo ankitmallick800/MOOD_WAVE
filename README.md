@@ -122,7 +122,7 @@ Copy `backend/.env.example` to `backend/.env` and edit it. The example file has 
 | `MOODWAVE_SPOTIFY_CLIENT_SECRET` | Optional. Your own Spotify application secret |
 | `MOODWAVE_CORS_ORIGINS` | Extra browser origins, comma-separated. GitHub Pages is already allowed |
 | `VITE_API_BASE` | Frontend build setting. The deployed API origin, with no trailing slash |
-| `VITE_BASE` | Frontend build setting. `/Music-Recommender/` on GitHub Pages, `/` locally |
+| `VITE_BASE` | Frontend build setting. `/MOOD_WAVE/` on GitHub Pages, `/` locally |
 
 Put Spotify credentials only in `backend/.env`.
 
@@ -152,7 +152,7 @@ Written reference: [docs/API.md](docs/API.md). Source limits: [docs/LIMITATIONS.
 
 ## Deploy
 
-The API runs on Vercel. The site runs on GitHub Pages at `https://ankitmallick800.github.io/Music-Recommender/`.
+The API runs on Vercel at `https://mood-wave-seven.vercel.app`. The site runs on GitHub Pages at `https://ankitmallick800.github.io/MOOD_WAVE/`.
 
 ### API on Vercel
 
@@ -166,9 +166,9 @@ Likes, playlists, and listening on Vercel are stored under `/tmp`. A fresh insta
 
 ### Site on GitHub Pages
 
-1. In the GitHub repository, open Settings → Secrets and variables → Actions → Variables. Add `VITE_API_BASE` with the Vercel production origin, such as `https://your-project.vercel.app`, and no slash at the end.
-2. Open Settings → Pages and set the source to GitHub Actions.
-3. Push `master`. `.github/workflows/pages.yml` builds the frontend with base path `/Music-Recommender/`, copies the expression models, and publishes the site.
+1. Open Settings → Pages and set the source to GitHub Actions.
+2. Push `master`. `.github/workflows/pages.yml` builds the frontend with base path `/MOOD_WAVE/` and calls `https://mood-wave-seven.vercel.app`.
+3. If the Vercel origin changes, add an Actions variable named `VITE_API_BASE` with the new origin and no slash at the end, then rerun the workflow.
 
 The page calls `VITE_API_BASE` for every API request. The API allows `https://ankitmallick800.github.io`. Add another host with `MOODWAVE_CORS_ORIGINS` on Vercel.
 
