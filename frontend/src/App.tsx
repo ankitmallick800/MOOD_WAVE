@@ -50,15 +50,17 @@ export function App() {
     return (
       <Screen
         title="The ranker is not running."
-        body={`${offline} Start the FastAPI service on port 8000, then reload.`}
+        body={`${offline} Start the API on port 8000 if you are running it on this machine, then try again.`}
         actionLabel="Try again"
         onAction={() => void boot()}
       />
     );
   }
 
+  const basename = import.meta.env.BASE_URL === "/" ? undefined : import.meta.env.BASE_URL.replace(/\/$/, "");
+
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <Routes>
         <Route path="/onboarding" element={<Onboarding />} />
         <Route element={profile ? <Shell /> : <Navigate to="/onboarding" replace />}>

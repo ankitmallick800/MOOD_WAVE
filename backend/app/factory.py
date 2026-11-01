@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+import os
 
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
@@ -12,6 +13,24 @@ from fastapi.responses import JSONResponse
 from app.api.routes import router
 from app.config import Settings
 from app.services.engine import Engine, EngineError
+
+_LOCAL_ORIGINS = (
+    "http://127.0.0.1:5173",
+    "http://localhost:5173",
+    "http://127.0.0.1:4173",
+    "http://localhost:4173",
+)
+_PAGES_ORIGIN = "https://ankitmallick800.github.io"
+
+
+def cors_origins() -> list[str]:
+    origins = [*_LOCAL_ORIGINS, _PAGES_ORIGIN]
+    extra = os.environ.get("MOODWAVE_CORS_ORIGINS", "")
+    for item in extra.split(","):
+        origin = item.strip().rstrip("/")
+        if origin.startswith(("http://", "https://")) and origin not in origins:
+            origins.append(origin)
+    return origins
 
 
 def create_app(settings: Settings | None = None) -> FastAPI:
@@ -31,16 +50,15 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.state.settings = settings
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=[
-            "http://127.0.0.1:5173",
-            "http://localhost:5173",
-            "http://127.0.0.1:4173",
-            "http://localhost:4173",
-        ],
+        allow_origins=cors_origins(),
         allow_methods=["*"],
         allow_headers=["*"],
     )
     app.include_router(router)
+
+    @app.get("/", include_in_schema=False)
+    def service_root() -> dict[str, str]:
+        return {"service": "MOODWAVE", "health": "/api/health", "docs": "/docs"}
 
     @app.exception_handler(EngineError)
     async def handle_engine_error(_request: Request, exc: EngineError) -> JSONResponse:

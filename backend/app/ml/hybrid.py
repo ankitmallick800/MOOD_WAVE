@@ -306,7 +306,7 @@ def _notes(
 ) -> list[str]:
     if catalog_kind == "metadata":
         notes = [
-            
+            "Tempo, energy, danceability, valence, and mood are unknown for this catalog. They are not filled in.",
         ]
     elif catalog_kind == "demo":
         notes = [

@@ -1,6 +1,6 @@
 # API
 
-Base URL `http://127.0.0.1:8000`. Errors use `{ "error", "detail" }`. The live user id is `local-user`. Ids that start with `synth-` are rejected.
+Base URL locally is `http://127.0.0.1:8000`. A hosted page sends requests to `VITE_API_BASE`. Errors use `{ "error", "detail" }`. The live user id is `local-user`. Ids that start with `synth-` are rejected. Opening `/` returns the service name and the health path.
 
 | Method | Path | Role |
 | --- | --- | --- |

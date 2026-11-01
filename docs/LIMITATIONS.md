@@ -12,4 +12,5 @@ These are properties of the sources MOODWAVE uses.
 - Listening events live in SQLite and are replayed to rebuild the inferred profile. A click does not retrain the factorization.
 - Facial expressions are an optional listening signal. Fearful and disgusted are not mapped to a playlist mood. Low confidence produces no suggestion. Images are not stored or uploaded. Mood match is withheld when a song has no mood tags and no audio features.
 - Lyrics come from LRCLIB when a title and artist match. They are shown in full and can be scrolled. They are not aligned to an Apple preview, because that preview can start anywhere in the song.
-- Librosa runs only when an audio file for that track is placed in the server audio directory. The extractor does not fill danceability or valence.
+- Librosa runs only when an audio file for that track is placed in the server audio directory. The extractor does not fill danceability or valence. The hosted API on Vercel does not install librosa.
+- On Vercel, the profile, likes, playlists, and listening events live in temporary disk. They reset when Vercel starts a fresh instance. The Apple song list is loaded again from the catalog file shipped in the repository.

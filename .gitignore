@@ -16,4 +16,5 @@ frontend/public/audio/
 frontend/public/models/
 .DS_Store
 .python-version
+!backend/.python-version
 frontend/tsconfig.tsbuildinfo

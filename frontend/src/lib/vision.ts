@@ -21,8 +21,9 @@ export async function loadExpressionModels(): Promise<void> {
   if (loaded) return;
   const module = (await import("@vladmandic/face-api")) as unknown as FaceApi;
   faceapi = module;
-  await module.nets.tinyFaceDetector.loadFromUri("/models");
-  await module.nets.faceExpressionNet.loadFromUri("/models");
+  const models = `${import.meta.env.BASE_URL}models`;
+  await module.nets.tinyFaceDetector.loadFromUri(models);
+  await module.nets.faceExpressionNet.loadFromUri(models);
   loaded = true;
 }
 

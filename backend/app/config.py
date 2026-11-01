@@ -16,6 +16,14 @@ def _location(value: str | None) -> str:
     return "IN"
 
 
+def apply_host_paths(data_dir: Path, db_path: Path) -> tuple[Path, Path]:
+    """Vercel can write only under /tmp, and that disk is replaced between instances."""
+    if os.environ.get("VERCEL") == "1":
+        root = Path("/tmp/moodwave")
+        return root, root / "moodwave.db"
+    return data_dir, db_path
+
+
 def _load_env_file(path: Path) -> None:
     """Fill unset variables from a local env file. Existing process env wins."""
     if not path.is_file():
@@ -72,6 +80,7 @@ class Settings:
         db_path = Path(os.environ.get("MOODWAVE_DB_PATH", data_dir / "moodwave.db")).expanduser()
         if not db_path.is_absolute():
             db_path = (BACKEND_ROOT / db_path).resolve()
+        data_dir, db_path = apply_host_paths(data_dir, db_path)
         catalog = os.environ.get("MOODWAVE_CATALOG_CSV", "").strip()
         interactions = os.environ.get("MOODWAVE_INTERACTIONS_JSON", "").strip()
         market = os.environ.get("MOODWAVE_SPOTIFY_MARKET", "IN").strip().upper() or "IN"

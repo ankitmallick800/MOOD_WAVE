@@ -1,16 +1,23 @@
 import json
 import time
+from pathlib import Path
 
 from fastapi.testclient import TestClient
 
-from app.config import Settings
+from app.config import Settings, apply_host_paths
 from app.data.catalog import language_factor
 from app.factory import create_app
 from app.ml.hybrid import rank_tracks
 from app.ml.profile import ExplicitProfile, InferredProfile
 from dataclasses import replace
 
-from app.providers.itunes import is_browse_noise, pick_itunes_match, track_from_itunes
+from app.providers.itunes import (
+    BUNDLED_SEED,
+    ensure_itunes_catalog,
+    is_browse_noise,
+    pick_itunes_match,
+    track_from_itunes,
+)
 
 
 def _item(track_id: int, title: str, artist: str, genre: str, preview: str | None) -> dict:
@@ -307,3 +314,63 @@ def test_itunes_search_hides_demo_versions_placeholders_and_dislikes(tmp_path, m
     monkeypatch.setattr("app.services.engine.search_itunes", lambda *_args, **_kwargs: [])
     missing = client.post("/api/catalog/apple-match", json={"title": "Missing Song", "artist": "Nobody"})
     assert missing.status_code == 404
+
+
+def _refuse_seed_refresh() -> list:
+    raise AssertionError("Vercel startup must not refetch the Apple catalog")
+
+
+def test_bundled_apple_seed_is_a_catalog():
+    payload = json.loads(BUNDLED_SEED.read_text(encoding="utf-8"))
+    assert isinstance(payload["fetched_at"], (int, float))
+    assert isinstance(payload["items"], list)
+    assert len(payload["items"]) >= 50
+
+
+def test_vercel_startup_loads_the_bundled_catalog(tmp_path, monkeypatch):
+    monkeypatch.setenv("VERCEL", "1")
+    monkeypatch.setattr("app.providers.itunes._fetch_seed", _refuse_seed_refresh)
+    settings = Settings(
+        data_dir=tmp_path / "data",
+        db_path=tmp_path / "data" / "test.db",
+        seed=42,
+        log_level="WARNING",
+        catalog_source="itunes",
+    )
+    client = TestClient(create_app(settings))
+    health = client.get("/api/health")
+    assert health.status_code == 200, health.text
+    assert health.json()["catalog_tracks"] >= 50
+    assert health.json()["demo_mode"] is False
+    root = client.get("/")
+    assert root.json()["health"] == "/api/health"
+    pages = client.get("/api/health", headers={"Origin": "https://ankitmallick800.github.io"})
+    assert pages.headers["access-control-allow-origin"] == "https://ankitmallick800.github.io"
+
+
+def test_vercel_keeps_a_stale_catalog_cache(tmp_path, monkeypatch):
+    monkeypatch.setenv("VERCEL", "1")
+    monkeypatch.setattr("app.providers.itunes._fetch_seed", _refuse_seed_refresh)
+    cache = tmp_path / "itunes_catalog.json"
+    preview = "https://audio-ssl.itunes.apple.com/preview.m4a"
+    cache.write_text(
+        json.dumps({"fetched_at": 0, "items": [_item(7, "Agar Tum Saath Ho", "Arijit Singh", "Bollywood", preview)]}),
+        encoding="utf-8",
+    )
+    tracks, warning = ensure_itunes_catalog(cache)
+    assert warning is None
+    assert [track.title for track in tracks] == ["Agar Tum Saath Ho"]
+
+
+def test_hosted_paths_and_extra_cors_origin(tmp_path, monkeypatch):
+    monkeypatch.delenv("VERCEL", raising=False)
+    local_data = tmp_path / "data"
+    local_db = local_data / "moodwave.db"
+    assert apply_host_paths(local_data, local_db) == (local_data, local_db)
+    monkeypatch.setenv("VERCEL", "1")
+    assert apply_host_paths(local_data, local_db) == (Path("/tmp/moodwave"), Path("/tmp/moodwave/moodwave.db"))
+    monkeypatch.setenv("MOODWAVE_CORS_ORIGINS", "https://preview.example.com/")
+    from app.factory import cors_origins
+
+    assert "https://preview.example.com" in cors_origins()
+    assert "https://ankitmallick800.github.io" in cors_origins()

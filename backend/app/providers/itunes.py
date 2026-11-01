@@ -8,7 +8,9 @@ tempo, energy, danceability, valence, mood, or language. Those stay unknown.
 from __future__ import annotations
 
 import json
+import os
 import re
+import shutil
 import time
 import urllib.parse
 import urllib.request
@@ -19,6 +21,7 @@ from app.ml.vocabulary import GENRES
 
 FEATURE_SOURCE = "itunes_metadata"
 _CACHE_TTL_SECONDS = 7 * 24 * 3600
+BUNDLED_SEED = Path(__file__).resolve().parents[1] / "data" / "itunes_seed.json"
 _PREVIEW_HOSTS = ("apple.com",)
 _ARTWORK_HOSTS = ("mzstatic.com",)
 _PAGE_HOSTS = ("apple.com",)
@@ -187,8 +190,30 @@ def track_from_itunes(item: dict) -> Track | None:
     )
 
 
+def install_bundled_seed(destination: Path) -> bool:
+    """Copy the committed Apple catalog when this instance has no cache yet."""
+    if destination.is_file() or not BUNDLED_SEED.is_file():
+        return False
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    if os.environ.get("VERCEL") == "1":
+        try:
+            payload = json.loads(BUNDLED_SEED.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            return False
+        if not isinstance(payload, dict) or not isinstance(payload.get("items"), list):
+            return False
+        payload["fetched_at"] = time.time()
+        destination.write_text(json.dumps(payload), encoding="utf-8")
+        return True
+    shutil.copyfile(BUNDLED_SEED, destination)
+    return True
+
+
 def ensure_itunes_catalog(path: Path, *, allow_network: bool = True, force: bool = False) -> tuple[list[Track], str | None]:
     cached = _read_cache(path)
+    # A full seed walk waits between queries and can outlast a serverless start.
+    if os.environ.get("VERCEL") == "1" and cached is not None and not force:
+        return _tracks_from_items(cached["items"]), None
     fresh = cached is not None and not force and (time.time() - float(cached["fetched_at"])) < _CACHE_TTL_SECONDS
     if fresh and cached is not None:
         return _tracks_from_items(cached["items"]), None

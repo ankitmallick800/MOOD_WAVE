@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 import threading
 import time
 from pathlib import Path
@@ -26,6 +27,7 @@ from app.providers.itunes import (
     ItunesError,
     ensure_itunes_catalog,
     identity_key,
+    install_bundled_seed,
     is_browse_noise,
     pick_itunes_match,
     search_itunes,
@@ -111,7 +113,10 @@ class Engine:
             self.dataset_origin = "external_catalog"
             logger.info("Loaded external catalog: %s accepted, %s rejected", report["tracks_accepted"], len(report["rejected"]))
         elif self.settings.catalog_source == "itunes":
-            self.tracks, self.catalog_warning = ensure_itunes_catalog(self.settings.data_dir / "itunes_catalog.json")
+            cache_path = self.settings.data_dir / "itunes_catalog.json"
+            if os.environ.get("VERCEL") == "1":
+                install_bundled_seed(cache_path)
+            self.tracks, self.catalog_warning = ensure_itunes_catalog(cache_path)
             self.dataset_origin = "itunes_catalog"
             logger.info("Loaded %s Apple Music catalog tracks", len(self.tracks))
         else:
